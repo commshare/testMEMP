@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" 
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  
+       
+    <TextView 
+        android:textAppearance="?android:textAppearanceLarge" 
+        android:id="@+id/textView" 
+        android:layout_width="0dp" 
+        android:layout_height="wrap_content" 
+        android:layout_weight="0.7"
+        />
+    
+    <ImageView android:id="@+id/imageView" 
+       android:layout_width="0dp" 
+        android:layout_height="wrap_content" 
+        android:scaleType="centerInside"
+        android:layout_weight="0.1"
+
+        android:src="@drawable/unselect" 
+     />
+    <Button 
+        android:id="@+id/btn_delete_list_item"
+      android:layout_width="0dp" 
+        android:layout_height="wrap_content"
+        android:text="删除"
+        android:layout_marginLeft="3dip"
+        android:layout_marginRight="1dip"
+        android:layout_weight="0.2"
+        
+        />
+</LinearLayout>
