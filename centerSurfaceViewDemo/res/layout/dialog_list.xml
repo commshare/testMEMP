@@ -11,6 +11,6 @@
           android:id="@+id/btn_set_item_to_play"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
-          android:text="设置为当前播放"
+          android:text="PlayIt"
           />
  </LinearLayout>

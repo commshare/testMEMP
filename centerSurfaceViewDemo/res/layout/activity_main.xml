@@ -31,7 +31,7 @@
             android:id="@+id/et_path"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="udp://@239.1.1.9:1234" />
+             />
         
     </LinearLayout>
 
@@ -58,6 +58,11 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="播放" />
+        <Button
+            android:id="@+id/btn_full_screen"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="全屏" />
 
         <Button
             android:id="@+id/btn_pause"

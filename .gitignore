@@ -49,3 +49,13 @@ libVLC/build/
 /centerSurfaceViewDemo/bin/resources.ap_
 /centerSurfaceViewDemo/bin/AndroidManifest.xml
 /centerSurfaceViewDemo/gen/
+
+
+/Looplayer/bin/classes/
+/Looplayer/bin/dexedLibs/
+/Looplayer/bin/res/
+/Looplayer/bin/classes.dex
+/Looplayer/bin/jarlist.cache
+/Looplayer/bin/resources.ap_
+/Looplayer/bin/AndroidManifest.xml
+/Looplayer/gen/

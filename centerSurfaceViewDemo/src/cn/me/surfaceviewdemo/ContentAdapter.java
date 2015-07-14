@@ -106,18 +106,18 @@ public class ContentAdapter extends BaseAdapter{
 			
 		});
 		//这个button是alertdialog里头的，这里获取不到的。
-//		Button btnSetPlayItem=(Button)convertView.findViewById(R.id.btn_set_item_to_play);
-//		if(btnSetPlayItem==null)
-//			Log.e("zhangbin","null pointer ???");
-//		else
-//		btnSetPlayItem.setOnClickListener(new View.OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				mPlayItemListener.setPlayItem(selectedPlayItem);
-//			}
-//		});
+		Button btnSetPlayItem=(Button)convertView.findViewById(R.id.btn_set_item_to_play);
+		if(btnSetPlayItem==null)
+			Log.e("zhangbin","null pointer ???");
+		else
+		btnSetPlayItem.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				mPlayItemListener.setPlayItem(selectedPlayItem);
+			}
+		});
 		Button deleteBtn=(Button)convertView.findViewById(R.id.btn_delete_list_item);
 		deleteBtn.setOnClickListener(new View.OnClickListener() {
 			

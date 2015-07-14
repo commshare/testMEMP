@@ -40,35 +40,35 @@ public class MainActivity extends Activity implements PlayMediaItemListener {
 
 	MediaItem mPlayItem=null;
 	//    final String[] arrayFruit = new String[] { "苹果", "橘子", "草莓", "香蕉" };  
-	private static final int ITEM_NUM=5;
+	private static final int ITEM_NUM=1;
 //	private static final String LIST_ITEM_1="udp://@239.1.1.9:1234";
 //	private static final String LIST_ITEM_2="/sdcard/Movies/kinogallery.com_0_300_Rise_of_an_Empire_trailer_int_o-720p.mp4";
 //	private static final String LIST_ITEM_3="rtsp://192.168.1.120:8554/bipbop-gear1-all.ts";
 //	private static final String LIST_ITEM_4="rtsp://192.168.1.120:8554/576.ts";
 	private static String fileString = Environment
-			.getExternalStorageDirectory() + "/Movies/The.Walking.Dead.S04E00.The.Oath.Part2.WEBrip.720x400-YYeTs.mp4";//zhangbinvideo.264";//"/h264/test.h264";
+			.getExternalStorageDirectory() + "Movies;//zhangbinvideo.264";//"/h264/test.h264";
 	private static final String LIST_ITEM_6="rtsp://192.168.1.120/The.Walking.Dead.S04E00.The.Oath.Part2.WEBrip.720x400-YYeTs.mp4";
-	private static final String LIST_ITEM_7="rtsp://192.168.1.120/cctv1.ts";
+	private static final String LIST_ITEM_7="/storage/emulated/0/Movies/300_Rise_of_an_Empire_trailer720p.mp4";
 	private static final String LIST_ITEM_1080p="http://192.168.1.120/big_buck_bunny_1080p_H264_AAC_25fps_7200K.MP4";
 	private static final String LIST_ITEM_720_400="http://192.168.1.120/The.Walking.Dead.S04E00.The.Oath.Part2.WEBrip.720x400-YYeTs.mp4";
-	
+
 	private final String[] arrayMediaItem=new String[]{
 //			LIST_ITEM_1,			
 //			LIST_ITEM_2,	
 //			LIST_ITEM_3,
 //			LIST_ITEM_4,
-			fileString,
-			LIST_ITEM_6,
+		//	fileString,
+		//	LIST_ITEM_6,
 			LIST_ITEM_7,
-			LIST_ITEM_1080p,
-			LIST_ITEM_720_400
+		//	LIST_ITEM_1080p,
+		//	LIST_ITEM_720_400
 	};
 	
 	private final String TAG = "ME_MP";
 
 	private EditText et_path;
 	private SurfaceView sv;
-	private Button btn_play, btn_pause, btn_replay, btn_stop;
+	private Button btn_play, btn_pause, btn_replay, btn_stop,btn_full_screen;
 	private MediaPlayer mediaPlayer;
 	private SeekBar seekBar;
 	private int currentPosition = 0;
@@ -95,11 +95,12 @@ public class MainActivity extends Activity implements PlayMediaItemListener {
 		seekBar = (SeekBar) findViewById(R.id.seekBar);
 		sv = (SurfaceView) findViewById(R.id.sv);
 		et_path = (EditText) findViewById(R.id.et_path);
-
+		et_path.setText(LIST_ITEM_7);
 		btn_play = (Button) findViewById(R.id.btn_play);
 		btn_pause = (Button) findViewById(R.id.btn_pause);
 		btn_replay = (Button) findViewById(R.id.btn_replay);
 		btn_stop = (Button) findViewById(R.id.btn_stop);
+		btn_full_screen=(Button)findViewById(R.id.btn_full_screen);
 
 		//add list_button
 		btn_save_path=(Button)findViewById(R.id.btn_save_path);
@@ -148,9 +149,9 @@ public class MainActivity extends Activity implements PlayMediaItemListener {
 		
 		Button btnPlaySelectedItem=(Button)mLL.findViewById(R.id.btn_set_item_to_play);
 		btnPlaySelectedItem.setOnClickListener(click);
-		//下面的这个是可以的
+//		//下面的这个是可以的
 //		btnPlaySelectedItem.setOnClickListener(new View.OnClickListener() {
-//			
+//
 //			@Override
 //			public void onClick(View v) {
 //				// TODO Auto-generated method stub
@@ -161,7 +162,7 @@ public class MainActivity extends Activity implements PlayMediaItemListener {
 //					et_path.setText(mPlayItem.getURL());
 //					//直接播放如何？
 //					play(0);
-		//use MainActivity.this by PanShangan
+//		//use MainActivity.this by PanShangan
 //					closeAlertDialog(MainActivity.this,mAlertDialog);
 //					mAlertDialog.dismiss();
 //				}
@@ -169,7 +170,7 @@ public class MainActivity extends Activity implements PlayMediaItemListener {
 //					Log.e(TAG,"get play item fail !!!!");
 //			}
 //		});
-		
+//
 
 	}
 	
@@ -215,8 +216,8 @@ public class MainActivity extends Activity implements PlayMediaItemListener {
 	    	((ViewGroup)mLL.getParent()).removeAllViews();
 	    }
 	    builder.setView(mLL);
-	    builder.setTitle("选择一个播放");
-	    builder.setPositiveButton("确定",
+	    builder.setTitle(R.string.choose_one_to_play);
+	    builder.setPositiveButton(R.string.ok,
 	                              new android.content.DialogInterface.OnClickListener()
 	    {
 
@@ -323,11 +324,17 @@ public class MainActivity extends Activity implements PlayMediaItemListener {
 			case R.id.btn_set_item_to_play:
 				setPathToPlay();
 				break;
+				case R.id.btn_full_screen:
+					full_screen();
+					break;
 			default:
 				break;
 			}
 		}
 	};
+	private void full_screen(){
+
+	}
 	private void updateMediaItemList()
 	{
 		if(mediaList!=null)
@@ -374,8 +381,11 @@ public class MainActivity extends Activity implements PlayMediaItemListener {
 		// 获取视频文件地址
 		//String path = et_path.getText().toString().trim();
 		//add my url from item
-		if(mPlayItem==null)
-			Log.e(TAG,"no play item selected ! open play list first !!!");
+		if(mPlayItem==null) {
+			//Log.e(TAG, "no play item selected ! open play list first !!!");
+			mPlayItem=new MediaItem();
+			mPlayItem.setURL(LIST_ITEM_7);
+		}
 		else
 		{
 		String path=mPlayItem.getURL().trim();

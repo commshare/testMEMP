@@ -4,5 +4,8 @@
     <string name="app_name">MESurfaceViewDemo</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="choose_one_to_play">选一个播</string>
+
+    <string name="ok">播</string>
 
 </resources>
