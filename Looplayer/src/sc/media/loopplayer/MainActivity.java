@@ -1,4 +1,4 @@
-package net.cybisoft.looplayer;
+package sc.media.loopplayer;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.VideoView;
+
+import sc.media.looplayer.R;
 
 public class MainActivity extends Activity {
 

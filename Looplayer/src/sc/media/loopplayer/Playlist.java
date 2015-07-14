@@ -1,4 +1,4 @@
-package net.cybisoft.looplayer;
+package sc.media.loopplayer;
 
 import android.util.Log;
 
