@@ -31,6 +31,7 @@ public class PlaybackController implements MediaPlayer.OnCompletionListener {
 		mainActivity = activity;
 		
 		wVideoView = activity.wVideoView;
+		//监听文件播放完毕
 		wVideoView.setOnCompletionListener(this);
 		
 		wImageView = activity.wImageView;

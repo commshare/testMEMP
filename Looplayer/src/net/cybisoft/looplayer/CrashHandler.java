@@ -33,8 +33,8 @@ public class CrashHandler implements UncaughtExceptionHandler {
 		    File root = android.os.Environment.getExternalStorageDirectory(); 
 
 		    // See http://stackoverflow.com/questions/3551821/android-write-to-sd-card-folder
-
-		    File file = new File(root, "looplayer_crash_report.txt");
+			//创建文件啊
+		    File file = new File(root, "SClooplayer_crash_report.txt");
 
 		    try {
 		        FileOutputStream f = new FileOutputStream(file);

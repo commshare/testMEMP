@@ -1,5 +1,7 @@
 package net.cybisoft.looplayer;
 
+import android.util.Log;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +9,8 @@ import java.util.Locale;
 
 
 public class Playlist extends ArrayList<String> {
-	
+	String TAG="Playlist";
+
 	private static final long serialVersionUID = 1L;
 	private int currentItem = -1;
 	
@@ -17,6 +20,10 @@ public class Playlist extends ArrayList<String> {
 	 */
 	public Playlist(String directoryPath) 
 	{
+		if(directoryPath==null) {
+			Log.e(TAG, "folder is NULL");
+			//TODO do sth ????
+		}
 		// loads all media items from the directory.
 		this.addAll(getMediaList(new File(directoryPath)));
 	}
@@ -74,6 +81,7 @@ public class Playlist extends ArrayList<String> {
 		return filename.toLowerCase(Locale.ROOT).endsWith(".jpg");
 	}
 
+	//支持两种格式
 	public static boolean isVideo(String filename) {
 		String lowerFilename = filename.toLowerCase(Locale.ROOT);
 		return lowerFilename.endsWith(".mp4") || lowerFilename.endsWith(".mov");

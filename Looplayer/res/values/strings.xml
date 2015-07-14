@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Looplayer</string>
+    <string name="app_name">SCLooplayer</string>
+    <string name="welcome">5秒后即将启动</string>
+    <string name="SCMovies">SCMovies</string>
 
 </resources>

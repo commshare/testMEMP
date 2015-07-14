@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ import android.widget.VideoView;
 
 public class MainActivity extends Activity {
 
+	String TAG="LoopMainActivity";
 	private PlaybackController playbackController;
 	
 	public VideoView wVideoView;
@@ -60,9 +62,9 @@ public class MainActivity extends Activity {
 		wImageView = (ImageView) findViewById(R.id.imageView);
 
 		// Loads the playlist to play.
-		Playlist currentPlaylist = new Playlist(Environment.getExternalStorageDirectory().toString()+"/Movies");
+		Playlist currentPlaylist = new Playlist(getSCMovies());
 		playbackController = new PlaybackController(this, currentPlaylist);
-		Toast.makeText(getBaseContext(), getString(R.string.app_name) + " " + dummyVersion + " - " + currentPlaylist.size() + " videos will now be played in loop.", Toast.LENGTH_LONG).show();
+		//Toast.makeText(getBaseContext(), getString(R.string.app_name) + " " + dummyVersion + " - " + currentPlaylist.size() + " videos will now be played in loop.", Toast.LENGTH_LONG).show();
 		playbackController.playNextMedia();
 	}
 
@@ -73,6 +75,11 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	private String getSCMovies(){
+		String path=Environment.getExternalStorageDirectory().toString()+"/"+getString(R.string.SCMovies);
+		Log.e(TAG,"path ["+path+"]");
+		return path;
+	}
 	@Override
 	protected void onPause() {
 		
